@@ -18,7 +18,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
     private SessionFactory sessionFactory;
 
     @Override
-    @Transactional // открывает и закрывает сессии
+//    @Transactional // открывает и закрывает сессии
     public List<Employee> getAllEmployee() {
 
         Session session = sessionFactory.getCurrentSession();
@@ -29,5 +29,14 @@ public class EmployeeDAOImpl implements EmployeeDAO{
         List<Employee> allEmployees = session.createQuery("from Employee", Employee.class).getResultList();
 
         return allEmployees;
+    }
+
+    @Override
+    public void saveEmployee(Employee employee) {
+
+        Session session = sessionFactory.getCurrentSession();
+
+        session.save(employee);
+
     }
 }
