@@ -9,6 +9,10 @@
 <!-- modelAttribute прописываем из public String addNewEmployee -> model.addAttribute("employee" -->
 <!-- action берем из @RequestMapping("/saveEmployee") public String saveEmployee() -->
 <form:form action="saveEmployee" modelAttribute="employee" >
+
+    <!-- скрытая форма, чтобы сохранить информацию для БК какой именно это работник -->
+    <form:hidden path="id"/>
+
     Name <form:input path="name"/>
     <br><br>
     Surname <form:input path="surname"/>
